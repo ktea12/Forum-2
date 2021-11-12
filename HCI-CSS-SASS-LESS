@@ -1,0 +1,65 @@
+//Example for Variable Handling
+$color: purple;           
+.scoped { 
+  $color: blue;
+  color: $color;        
+}                        
+.unscoped {     
+  //LESS = purple (global)
+  //SASS = blue (overwritten by local)
+  //for SASS when you "locally" overwrite a "global" variable, the global variable takes on the value of the local variable.
+  color: $color;          
+}
+
+//CSS Variable Handling
+//global
+:root {
+  --color: purple; 
+  color: var(--color);
+}
+
+//local
+.local {
+  --color: blue; 
+  color: var(--color);
+}
+
+//Nesting in CSS
+.box{
+    background:lilac;
+    border:2px solid #C8A2C8;
+}
+.box.button{
+    font-weight:bold;
+    text-align:left;
+    padding:5px 12px;
+    background:blue;
+    color:white;
+}
+
+//Nesting in SASS
+$lilac = lilac;
+.box{
+    background:$lilac;
+    border:2px solid #C8A2C8;
+    .button{
+            font-weight:bold;
+            text-align:right;
+            padding:5px 12px;
+            background:blue;
+            color:white;
+    }
+}
+
+//Nesting in LESS
+#footer {
+    color: lilac;
+ 
+    .block_left {
+        font-size: 11px;
+    }
+ 
+    .logo {
+        width: 200;
+    }
+}
